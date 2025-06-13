@@ -11,7 +11,7 @@ const Streak = () => {
 
   return (
     <div className="flex justify-end">
-      <h2 className="text-xl font-bold mb-4 text-gray-500 ">
+      <h2 className="text-xl font-bold mb-9 text-black-500 mt-9">
         🔥 Current Streak: <span className="text-orange-500">{streak}</span> day
         {streak === 1 ? "" : "s"}
       </h2>

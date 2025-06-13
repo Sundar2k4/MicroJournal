@@ -14,7 +14,7 @@ app.get('/entries', async (req, res) => {
   res.json(entries);
 });
 
-app.post('/entries', async (req, res) => {
+app.post('/entry', async (req, res) => {
   const { content } = req.body;
   const date = new Date().toISOString().split('T')[0];
 
