@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const Entry = require('./models/Entry');
+const Tasks = require('./Models/Task');
+const Task = require('./Models/Task');
 
 const app = express();
 app.use(cors());
@@ -46,5 +48,47 @@ app.get('/streak', async (req, res) => {
 
   res.json({ streak });
 });
+
+app.post('/task', async (req,res) => {
+    try
+    {
+       const newtask = new Task({
+         task:req.body.task
+      });
+
+      const saved = await newtask.save();
+      res.status(201).json(saved);
+    }catch(e)
+    {
+      console.log(e);
+    }
+
+});
+
+
+app.get('/tasks', async (req, res) => {
+  try {
+    const tasks = await Tasks.find();
+    res.status(200).json(tasks);
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+    res.status(500).json({ error: "Server error while fetching tasks" });
+  }
+});
+
+app.get('/delete/:id', async (req,res)=>{
+   try{
+        const {id} = req.params;
+        const delet = await Tasks.findByIdAndDelete(id);
+
+        if(delet)
+        {
+          res.status(201).json('deleted the dish');
+        }
+   }catch(e)
+   {
+     res.status(400).json('error occured',e);
+   }
+})
 
 app.listen(5000, () => console.log('Server running on port 5000'));

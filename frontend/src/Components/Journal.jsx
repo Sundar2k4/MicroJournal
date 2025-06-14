@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import TaskManager from "./TaskManager";
 
 const Journal = () => {
   const [entries, setEntries] = useState([]);
@@ -32,10 +33,10 @@ const Journal = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4 flex">
-      <div className="max-w-xl mx-auto bg-white rounded-xl shadow-lg p-6 ml-0">
-        <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
-          😊 Micro Journal
+    <div className="min-h-screen bg-white py-10 px-4 flex">
+      <div className="max-w-xl bg-white/20 backdrop-blur-md mx-auto  rounded-xl border border-black-500 p-6 ml-0">
+        <h1 className="text-3xl font-bold text-center text-black mb-6">
+          Micro Journal
         </h1>
 
         <form
@@ -48,11 +49,11 @@ const Journal = () => {
             maxLength={140}
             onChange={(e) => setContent(e.target.value)}
             placeholder="Write your one-liner..."
-            className="flex-1 border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="flex-1 border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-200"
           />
           <button
             type="submit"
-            className="bg-cyan-600 text-white px-5 py-2 rounded-md hover:bg-green-700 transition"
+            className="bg-white border border-black text-black px-5 py-2 rounded-md hover:bg-black hover:text-white transition"
           >
             Add
           </button>
@@ -72,6 +73,7 @@ const Journal = () => {
           ))}
         </ul>
       </div>
+      <TaskManager />
     </div>
   );
 };
