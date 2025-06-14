@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import TaskManager from "./TaskManager";
+import ProductivityTimer from "./ProductivityTimer";
 
 const Journal = () => {
   const [entries, setEntries] = useState([]);
@@ -33,7 +34,7 @@ const Journal = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white py-10 px-4 flex">
+    <div className="min-h-screen bg-white py-10 px-4 gap-100px flex">
       <div className="max-w-xl bg-white/20 backdrop-blur-md mx-auto  rounded-xl border border-black-500 p-6 ml-0">
         <h1 className="text-3xl font-bold text-center text-black mb-6">
           Micro Journal

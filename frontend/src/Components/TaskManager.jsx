@@ -47,8 +47,8 @@ function TaskManager() {
   }, []);
 
   return (
-    <div>
-      <div className="border border-black mx-auto p-10 mr-100 rounded-xl flex">
+    <div className="flex justify-center items-start p-10 gap-100vh ml-30">
+      <div className="border border-black mx-auto p-10 mr-100 rounded-xl flex-shrink-0">
         <div className="min-h-screen py-10 px-4">
           <h2 className="text-3xl font-bold text-center text-black mb-6">
             TaskManager
