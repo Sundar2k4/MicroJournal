@@ -4,6 +4,7 @@ const cors = require('cors');
 const Entry = require('./models/Entry');
 const Tasks = require('./Models/Task');
 const Task = require('./Models/Task');
+const Goal = require('./Models/Goal');
 
 const app = express();
 app.use(cors());
@@ -90,5 +91,30 @@ app.get('/delete/:id', async (req,res)=>{
      res.status(400).json('error occured',e);
    }
 })
+
+app.post("/goals", async (req, res) => {
+  try {
+    console.log("Request body:", req.body);
+
+    const { goal, due, subtasks } = req.body;
+
+    if (!goal || !Array.isArray(subtasks)) {
+      return res.status(400).json({ error: "Goal and subtasks are required" });
+    }
+
+    const newGoal = new Goal({
+      goal,         
+      duedate: due, 
+      subtasks,
+    });
+
+    const savedGoal = await newGoal.save();
+    res.status(201).json(savedGoal);
+  } catch (err) {
+    console.error("Error saving goal:", err);
+    res.status(500).json({ error: "Server error: " + err.message });
+  }
+});
+
 
 app.listen(5000, () => console.log('Server running on port 5000'));

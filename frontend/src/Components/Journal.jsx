@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import TaskManager from "./TaskManager";
 import ProductivityTimer from "./ProductivityTimer";
+import GoalTracker from "./GoalTracker";
 
 const Journal = () => {
   const [entries, setEntries] = useState([]);

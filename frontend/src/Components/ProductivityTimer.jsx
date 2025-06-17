@@ -40,7 +40,9 @@ export default function ProductivityTimer() {
 
   return (
     <div className="border border-black p-10 rounded-xl ml-[-180px] flex flex-col items-center gap-4 bg-white shadow-md">
-      <h2 className="text-xl font-semibold">Productivity Timer</h2>
+      <h2 className="text-3xl font-bold text-center text-black mb-6">
+        Productivity Timer
+      </h2>
       <h1 className="text-3xl font-mono">{formatTime(seconds)}</h1>
       <div className="flex gap-4">
         <button
