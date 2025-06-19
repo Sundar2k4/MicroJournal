@@ -10,7 +10,7 @@ const Journal = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/entries")
+    fetch("https://microjournal-backend.onrender.com/entries")
       .then((res) => res.json())
       .then((data) => setEntries(data));
   }, []);
@@ -19,7 +19,7 @@ const Journal = () => {
     e.preventDefault();
     setError("");
 
-    const res = await fetch("http://localhost:5000/entry", {
+    const res = await fetch("https://microjournal-backend.onrender.com/entry", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ content }),

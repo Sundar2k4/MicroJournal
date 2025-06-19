@@ -24,11 +24,14 @@ const GoalForm = () => {
     const payload = { goal, due, subtasks: filteredsubtasks };
 
     try {
-      const res = await fetch("http://localhost:5000/goals", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      const res = await fetch(
+        "https://microjournal-backend.onrender.com/goals",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
 
       if (res.ok) {
         alert("Goal added!");

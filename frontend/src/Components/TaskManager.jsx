@@ -6,7 +6,7 @@ function TaskManager() {
   const [reminders, setReminders] = useState([]);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = await fetch("http://localhost:5000/task", {
+    const data = await fetch("https://microjournal-backend.onrender.com/task", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ task: task }),
@@ -20,7 +20,9 @@ function TaskManager() {
 
   const fetchTasks = async () => {
     try {
-      const response = await fetch("http://localhost:5000/tasks");
+      const response = await fetch(
+        "https://microjournal-backend.onrender.com/tasks"
+      );
       const data = await response.json();
       setReminders(data);
     } catch (err) {
@@ -30,7 +32,9 @@ function TaskManager() {
 
   const handledelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/delete/${id}`);
+      const response = await fetch(
+        `https://microjournal-backend.onrender.com/delete/${id}`
+      );
       if (response.ok) {
         console.log("Successfully deleted task");
       }

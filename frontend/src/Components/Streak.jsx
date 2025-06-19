@@ -4,7 +4,7 @@ const Streak = () => {
   const [streak, setStreak] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:5000/streak")
+    fetch("https://microjournal-backend.onrender.com/streak")
       .then((res) => res.json())
       .then((data) => setStreak(data.streak));
   }, []);

@@ -11,7 +11,9 @@ const GoalTracker = () => {
 
   const getData = async () => {
     try {
-      const res = await fetch("http://localhost:5000/getgoal");
+      const res = await fetch(
+        "https://microjournal-backend.onrender.com/getgoal"
+      );
       const data = await res.json();
       setGoals(data);
     } catch (error) {
@@ -22,7 +24,7 @@ const GoalTracker = () => {
   const toggleSubtask = async (goalId, subtaskIndex, currentStatus) => {
     try {
       await fetch(
-        `http://localhost:5000/goals/${goalId}/subtask/${subtaskIndex}`,
+        `https://microjournal-backend.onrender.com/goals/${goalId}/subtask/${subtaskIndex}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -47,7 +49,7 @@ const GoalTracker = () => {
           onClick={() => navigate("/addgoal")}
           className="mb-6 bg-white border border-black text-black px-5 py-2 rounded-md hover:bg-black hover:text-white transition"
         >
-          ➕ Add New Goal
+          + Add New Goal
         </button>
 
         {goals.length === 0 ? (
