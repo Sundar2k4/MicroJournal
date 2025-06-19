@@ -5,7 +5,7 @@ import Journal from "./Components/Journal";
 import Streak from "./Components/Streak";
 import TaskManager from "./Components/TaskManager";
 import GoalTracker from "./Components/GoalTracker";
-import GoalForm from "./Components/Goalform";
+import GoalForm from "./Components/GoalForm";
 
 const App = () => {
   return (
