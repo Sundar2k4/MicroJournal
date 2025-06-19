@@ -44,7 +44,7 @@ const GoalForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white py-10 px-10 flex ml-130">
+    <div className="min-h-screen bg-white py-10 px-10 flex ml-10">
       <div className="max-w-xl bg-white/20 backdrop-blur-md mx-auto rounded-xl border border-black-500 p-10">
         <h1 className="text-3xl font-bold text-center text-black mb-6">
           GoalForm

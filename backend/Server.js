@@ -116,5 +116,33 @@ app.post("/goals", async (req, res) => {
   }
 });
 
+app.get('/getgoal',async (req,res)=>{
+   try{
+      const goals = await Goal.find();
+      res.json(goals);
+   }catch(e)
+   {
+     System.out.println(e);
+   }
+})
+
+app.put("/goals/:goalId/subtask/:subtaskIndex", async (req, res) => {
+  try {
+    const { goalId, subtaskIndex } = req.params;
+    const { iscompleted } = req.body;
+
+    const goal = await Goal.findById(goalId);
+    if (!goal) return res.status(404).json({ error: "Goal not found" });
+
+    goal.subtasks[subtaskIndex].iscompleted = iscompleted;
+    await goal.save();
+
+    res.json(goal);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to update subtask: " + err.message });
+  }
+});
+
+
 
 app.listen(5000, () => console.log('Server running on port 5000'));
