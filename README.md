@@ -1,3 +1,4 @@
+````markdown
 # 🧠 Personal MultiPlanner 🗓️
 
 A full-stack **MERN** application that helps you stay organized, productive, and self-aware.  
@@ -51,4 +52,84 @@ This **MultiPlanner** includes:
 ```bash
 git clone https://github.com/yourusername/multiplanner.git
 cd multiplanner
+```
+````
+
+### 2. Backend Setup
+
+```bash
+cd backend
+npm install
+```
+
+Create a `.env` file in the `/backend` folder with the following:
+
+```env
+PORT=5000
+MONGO_URL=mongodb+srv://<your-username>:<your-password>@cluster.mongodb.net/multiplanner?retryWrites=true&w=majority
+```
+
+Then start the backend:
+
+```bash
+node server.js
+# or
+npx nodemon server.js
+```
+
+### 3. Frontend Setup
+
+```bash
+cd ../frontend
+npm install
+npm run dev
+```
+
+---
+
+## 📁 Folder Structure
+
+```
+multiplanner/
+├── backend/
+│   ├── models/
+│   │   ├── Entry.js
+│   │   ├── Goal.js
+│   │   ├── Task.js
+│   ├── server.js
+│   └── .env
+└── frontend/
+    ├── components/
+    │   ├── GoalTracker.jsx
+    │   ├── GoalForm.jsx
+    │   ├── Journal.jsx
+    │   ├── TaskManager.jsx
+    │   └── ProductivityTimer.jsx
+    ├── App.jsx
+    └── main.jsx
+```
+
+---
+
+## ✨ Future Ideas
+
+- 📊 Progress charts
+- 🛎️ Notifications/reminders
+- 🔒 Authentication (Login/Signup)
+- 📱 Mobile responsiveness
+
+---
+
+## 🧑‍💻 Author
+
+Made with ❤️ by **Sundar C**
+
+---
+
+## 📃 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+```
+
 ```
